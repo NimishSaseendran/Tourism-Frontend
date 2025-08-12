@@ -1,0 +1,22 @@
+<section class="section-container">
+    <div class="title">
+        <h3 class="heading">Explore Breathtaking Places in Kerala</h3>
+        <div class="sub-heading"> Discover some of the most beautiful destinations in Kerala, from misty hill stations
+            to serene backwaters and vibrant coastal towns. Each place offers a unique glimpse into the rich culture,
+            nature, and charm of God's Own Country.
+        </div>
+    </div>
+    <div class="row g-3">
+        <div class="col-md-6" *ngFor="let item of arrPlaces" (click)="fnNavigate(item)">
+            <div class="card custom-card p-3 mb-3">
+                <img [src]="item.image" alt="{{ item.title }}" class="place-image" (error)="onImageError($event)" />
+                <div class="place-details">
+                    <h4 class="mb-1">{{ item.title }}</h4>
+                    <p class="mb-0">{{ item.description }}</p>
+                    <span class="badge bg-success" *ngFor="let tag of item.arrTags">{{ tag }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

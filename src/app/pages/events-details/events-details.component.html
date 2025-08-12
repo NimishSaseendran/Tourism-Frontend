@@ -1,0 +1,30 @@
+<section>
+    <div class="event-detail">
+        <img [src]="event.image" [alt]="event.slug" class="img-event-detail">
+        <div class="event-detail-container">
+            <div class="ibm">Home - Event - {{ event.category }} - {{ event.name }}</div>
+            <h1 class="bebas">{{ event.name }}</h1>
+        </div>
+    </div>
+    <div class="festival-container mb-5">
+        <div class="festival d-flex align-items-center gap-4 border-bottom">
+            <div>FESTIVAL HIGHLIGHTS</div>|
+            <div>HOSPITALITY SERVICES</div>|
+            <div>OTHER TRADITIONAL FESTIVALS</div>|
+            <div>OTHER FESTIVAL</div>
+        </div>
+    </div>
+    <div class="padding">
+        <div class="row m-0">
+            <div class="col-md-8">
+                <div class="description">{{ event.description }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="padding">
+        <div class="disclaimer p-3 rounded-2">
+            <h4>Disclaimer</h4>
+            <div class="description">{{ event.disclaimer }}</div>
+        </div>
+    </div>
+</section>

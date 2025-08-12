@@ -1,0 +1,27 @@
+<section>
+    <div class="memories-image"></div>
+    <div class="d-center main-container">
+        <div class="left-container">
+            <h2 class="heading-subtitle me-2">Memories <br> for a Lifetime</h2>
+        </div>
+
+        <div class="right-container position-relative">
+            <button class="scroll-btn left" *ngIf="showLeftArrow" (click)="scrollLeft()">
+                <i class="fa-solid fa-angle-left fa-xl"></i>
+            </button>
+
+            <div class="image-scroll" #scrollContainer>
+                <div class="image-wrapper" *ngFor="let item of arrMemories">
+                    <div class="img-box" (click)="fnNavigate(item)">
+                        <img [src]="item.image" alt="{{ item.title }}" class="img-item" />
+                        <h3 class="item-title">{{ item.title }}</h3>
+                    </div>
+                </div>
+            </div>
+
+            <button class="scroll-btn right" *ngIf="showRightArrow" (click)="scrollRight()">
+                <i class="fa-solid fa-angle-right fa-xl"></i>
+            </button>
+        </div>
+    </div>
+</section>

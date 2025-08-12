@@ -1,0 +1,28 @@
+<section class="section-container">
+    <div class="title">
+        <h3 class="heading cursor-pointer">Upcoming Events <i class="fa-solid fa-angles-right fs-2"></i></h3>
+        <div class="sub-heading">The land of rich cultures and traditions! Mark the major events for your next visit.
+        </div>
+    </div>
+    <div class="row m-0">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3 g-3 event-container" *ngFor="let event of arrEvents"
+            [routerLink]="['/event', event.slug, event.id]">
+            <div class="image-wrapper">
+                <img [src]="event.image" alt="{{ event.name }}" class="img-event" />
+            </div>
+
+            <div class="event-content">
+                <!-- Top part -->
+                <div>
+                    <h2>{{ getFirstKey(event.date) | titlecase }}</h2>
+                    <h1>
+                        {{ event?.date?.from || event?.date?.on | date: 'dd MMM' }}
+                    </h1>
+                </div>
+
+                <!-- Bottom part -->
+                <h2>{{ event.name }}</h2>
+            </div>
+        </div>
+    </div>
+</section>

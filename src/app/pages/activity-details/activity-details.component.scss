@@ -1,0 +1,52 @@
+.activity-detail-page {
+    font-family: 'Poppins', sans-serif;
+
+    .hero-section {
+        position: relative;
+        height: 400px;
+        overflow: hidden;
+
+        .hero-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(65%);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent);
+        }
+
+        .hero-text {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+        }
+    }
+
+    .section-card {
+        background: #fff;
+        border: 1px solid #e8e8e8;
+        border-radius: 16px;
+        box-shadow: 0 5px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .info-tile {
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+    }
+
+    .cta-panel {
+        border: 1px solid #e0e0e0;
+    }
+
+    .badge {
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,53 @@
+<div class="container my-5">
+    <h2 class="text-center mb-4">🌟 Meet Our Volunteers</h2>
+    <p class="text-center text-muted mb-5">Local heroes offering free assistance to travelers with compassion and pride.
+    </p>
+
+    <div class="row g-4">
+        <div class="col-md-4" *ngFor="let v of volunteers">
+            <div class="card volunteer-card h-100 shadow-sm border-0 bg-white bg-opacity-75 backdrop-blur">
+                <div class="card-body d-flex flex-column text-center p-4">
+
+                    <div class="position-relative mb-3">
+                        <img [src]="v.photo" alt="{{ v.name }}"
+                            class="rounded-circle border border-3 border-success shadow profile-img">
+                        <span class="badge bg-success position-absolute top-0 end-0 translate-middle p-2 rounded-circle"
+                            title="Volunteer">
+                            <i class="fa fa-heart text-white"></i>
+                        </span>
+                    </div>
+
+                    <h5 class="fw-bold">{{ v.name }}</h5>
+                    <p class="text-muted fs-5 mb-1">{{ v.role }}</p>
+                    <p class="mb-1 fs-5"><i class="fa fa-map-marker-alt text-danger"></i> {{ v.city }}</p>
+                    <p class="mb-2 fs-5"><i class="fa fa-calendar-alt text-primary"></i> {{ v.availability }}</p>
+
+                    <p>
+                        <strong>Languages:</strong>
+                        <span *ngFor="let lang of v.languages"
+                            class="badge rounded-pill bg-light text-dark border me-1">{{ lang }}</span>
+                    </p>
+
+                    <p class="text-muted small mb-2">{{ v.bio }}</p>
+
+                    <div class="d-flex justify-content-center gap-2 mb-3">
+                        <span *ngFor="let tag of v.tags"
+                            class="badge bg-primary-subtle text-primary border rounded-pill">
+                            {{ tag }}
+                        </span>
+                    </div>
+
+                    <div class="mt-auto d-flex gap-2">
+                        <button class="btn-outline-theme bg-light w-50"
+                            (click)="fnNumber(v.whatsappNumber, 'whatsapp')">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </button>
+                        <button class="w-50" (click)="fnNumber(v.contactNumber, 'contact')">
+                            <i class="fa fa-phone"></i> Call
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

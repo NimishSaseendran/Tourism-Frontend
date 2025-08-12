@@ -1,0 +1,133 @@
+<!-- tour-package.component.html -->
+<section class="tour-package-page" *ngIf="arrSpecialityTourPackage">
+
+    <!-- Hero Banner -->
+    <div class="hero-banner position-relative mb-5 overflow-hidden shadow-lg">
+        <img [src]="arrSpecialityTourPackage.sections.heroBanner.image" class="img-speciality" alt="Tour Banner">
+        <div class="hero-text p-2 position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-center text-white text-center"
+            style="background: linear-gradient(to bottom right, rgba(0,0,0,0.6), rgba(0,0,0,0.3));">
+            <h1 class="display-4 fw-semibold text-shadow">{{ arrSpecialityTourPackage.sections.heroBanner.heading }}
+            </h1>
+            <p class="lead fw-medium text-shadow">{{ arrSpecialityTourPackage.sections.heroBanner.subheading }}</p>
+        </div>
+    </div>
+
+    <div class="p-4">
+        <!-- Overview Description -->
+        <div class="mb-5 text-center px-md-5">
+            <h2 class="mb-3 fw-bold">Overview</h2>
+            <p class="text-muted fs-5">{{ arrSpecialityTourPackage.sections.overview.content }}</p>
+        </div>
+
+        <!-- Package List -->
+        <div class="mb-5">
+            <h2 class="mb-4 text-center fw-bold">Available Packages</h2>
+            <div class="row g-4">
+                <div class="col-md-4 mb-4" *ngFor="let pkg of arrSpecialityTourPackage.sections.packages">
+                    <div class="card h-100 shadow-lg border-0 rounded-4 overflow-hidden">
+
+                        <!-- Image with Tags -->
+                        <div class="position-relative">
+                            <img [src]="pkg.image" class="card-img-top rounded-top-4" [alt]="pkg.name"
+                                style="height: 240px; object-fit: cover;">
+
+                            <!-- Dynamic Tags -->
+                            <div class="position-absolute top-0 start-0 m-2 d-flex flex-wrap gap-1">
+                                <span *ngFor="let tag of pkg.tags" class="badge text-light px-2 py-1 rounded-pill"
+                                    [ngClass]="getTagClass(tag)">
+                                    <i class="fa me-1" [ngClass]="getTagIcon(tag)"></i>
+                                    {{ tag }}
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="card-body d-flex flex-column px-4 pb-4 pt-3">
+                            <h5 class="card-title fw-bold mb-2 text-theme">{{ pkg.name }}</h5>
+                            <p class="text-muted small mb-3">{{ pkg.shortDescription }}</p>
+                            <h6 class="fw-semibold text-success mb-3">
+                                ₹{{ pkg.price | number:'1.0-0' }} <small class="text-muted">/ person</small>
+                            </h6>
+                            <ul class="list-unstyled small mb-4">
+                                <li class="mb-1"><i class="fa fa-calendar me-2 text-primary"></i>{{ pkg.duration }}</li>
+                                <li class="mb-1"><i class="fa fa-map-marker-alt me-2 text-success"></i>{{ pkg.places }}
+                                </li>
+                                <li class="mb-1"><i class="fa fa-users me-2 text-warning"></i>Group Size: {{
+                                    pkg.groupSize
+                                    }}</li>
+                            </ul>
+                            <button [routerLink]="[pkg.slug]" class="btn-outline-theme mt-auto fw-semibold">
+                                View Details
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inclusions & Exclusions -->
+        <div class="row mb-5">
+            <div class="col-md-6">
+                <h4 class="fw-semibold">Inclusions</h4>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" *ngFor="let include of arrSpecialityTourPackage.sections.inclusions">
+                        <i class="fa fa-check text-success me-2"></i>{{ include }}
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h4 class="fw-semibold">Exclusions</h4>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item" *ngFor="let exclude of arrSpecialityTourPackage.sections.exclusions">
+                        <i class="fa fa-times text-danger me-2"></i>{{ exclude }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Customer Reviews -->
+        <div class="mb-5">
+            <h2 class="mb-3 text-center fw-bold">Traveler Testimonials</h2>
+            <div class="row g-4">
+                <div class="col-md-6" *ngFor="let review of arrSpecialityTourPackage.sections.reviews">
+                    <div class="border p-4 rounded shadow-sm bg-light h-100">
+                        <h5 class="mb-2 text-dark fw-semibold">{{ review.name }}</h5>
+                        <p class="text-warning mb-1">
+                            <i class="fa fa-star" *ngFor="let star of [].constructor(review.rating)"></i>
+                        </p>
+                        <p class="text-muted fst-italic">“{{ review.comment }}”</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="mb-5">
+            <h2 class="mb-4 text-center fw-bold">FAQs</h2>
+            <div class="accordion accordion-flush" id="faqAccordion">
+                <div class="accordion-item" *ngFor="let faq of arrSpecialityTourPackage.sections.faq; let i = index">
+                    <h2 class="accordion-header" id="faqHeading{{i}}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            [attr.data-bs-target]="'#faqCollapse' + i" aria-expanded="false"
+                            [attr.aria-controls]="'faqCollapse' + i">
+                            {{ faq.question }}
+                        </button>
+                    </h2>
+                    <div [id]="'faqCollapse' + i" class="accordion-collapse collapse"
+                        [attr.aria-labelledby]="'faqHeading' + i" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">{{ faq.answer }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center py-5 bg-theme text-white rounded-4 shadow-lg">
+            <h2 class="mb-3 fw-bold">{{ arrSpecialityTourPackage.sections.cta.title }}</h2>
+            <a [routerLink]="arrSpecialityTourPackage.sections.cta.link"
+                class="btn btn-light btn-lg rounded-pill px-4">{{
+                arrSpecialityTourPackage.sections.cta.buttonText }}</a>
+        </div>
+    </div>
+
+</section>

@@ -1,0 +1,46 @@
+.hero {
+    height: 300px;
+    background: url('https://img.freepik.com/free-vector/group-tourists-travelling-with-guide-holding-flag-flat-illustration_74855-18752.jpg?semt=ais_hybrid&w=740') no-repeat center center;
+    background-size: cover;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+}
+
+.guide-img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.guide-avatar {
+    width: 55px;
+    height: 55px;
+    border: 2px solid #fff;
+    object-fit: cover;
+}
+
+.rating-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 10px;
+}
+
+.guide-card {
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s;
+
+    &:hover {
+        transform: scale(1.01);
+    }
+}
+
+.badge {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+}
+
+.ibm {
+    font-size: 20px;
+}

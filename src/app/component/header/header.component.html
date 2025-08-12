@@ -1,0 +1,100 @@
+<section class="header-section">
+    <nav class="navbar navbar-expand-lg px-3">
+        <div class="container-fluid">
+            <!-- Left Side: Logo -->
+            <a class="navbar-brand d-flex align-items-center" routerLink="/">
+                <img src="/logo/travelLogo.jpg" alt="Logo" width="40" height="40" class="me-2 travel-logo" />
+                <span class="kerala-text">KERALA</span>
+            </a>
+
+            <!-- Toggle Button for Mobile View -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarItems"
+                aria-controls="navbarItems" aria-expanded="false" aria-label="Toggle navigation"
+                style="color: white; border: 1px solid #ccc;">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+
+            <!-- Right Side: Dropdown Menu -->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarItems">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+
+                    <!-- Dropdown: Explore -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button">Explore</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" *ngFor="let item of arrCategories"
+                                    (click)="fnNavigate('/places',item.slug)">{{ item?.title }}</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Dropdown: Travel Hub -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button">Travel Hub</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" *ngFor="let item of arrTravelhub"
+                                    (click)="fnNavigate(item.path, null)">{{ item?.title }}</a></li>
+                            <li><a class="dropdown-item" (click)="fnNavigate('places', null)">All places</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Dropdown: Nature -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">Activities</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item"
+                                    (click)="fnNavigate('/activities/backwater-cruise', null)">Backwater Cruise</a></li>
+                            <li><a class="dropdown-item"
+                                    (click)="fnNavigate('/activities/kathakali-performance', null)">Kathakali
+                                    Performance</a></li>
+                            <li><a class="dropdown-item"
+                                    (click)="fnNavigate('/activities/ayurvedic-massage', null)">Ayurvedic Massage</a>
+                            </li>
+                            <li><a class="dropdown-item"
+                                    (click)="fnNavigate('/activities/tea-plantation-tour', null)">Tea Plantation
+                                    Tour</a></li>
+                            <li><a class="dropdown-item"
+                                    (click)="fnNavigate('/activities/paragliding-varkala', null)">Paragliding in
+                                    Varkala</a></li>
+                            <li class="text-center">
+                                <a class="dropdown-item fw-semibold" (click)="fnNavigate('/activities', null)">
+                                    View More <i class="fa-solid fa-angle-right"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Dropdown: Specialities -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button">Bookings</a>
+                        <ul class="dropdown-menu">
+                            <li *ngFor="let item of arrSpecialities">
+                                <a class="dropdown-item" (click)="fnNavigate('/speciality', item.slug)">{{ item?.name
+                                    }}</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Dropdown: Find Local Guardian -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button">Connect</a>
+                        <ul class="dropdown-menu dropdown-menu-left">
+                            <li><a class="dropdown-item" (click)="fnNavigate('/tour-guide', null)">Tour Guides</a></li>
+                            <li><a class="dropdown-item" (click)="fnNavigate('/local-helper', null)">Local Helpers</a>
+                            </li>
+                            <li><a class="dropdown-item" (click)="fnNavigate('/volunteers', null)">Volunteers</a></li>
+                            <li><a class="dropdown-item" (click)="fnNavigate('/connect-with-others', null)">Connect With
+                                    Others</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button">Account</a>
+                        <ul class="dropdown-menu dropdown-menu-left">
+                            <li><a routerLink="/profile" class="dropdown-item">My Profile</a></li>
+                            <li><a routerLink="/sign/local-guide" class="dropdown-item">Add Local Guide</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</section>

@@ -1,0 +1,134 @@
+.package-hero {
+    height: 80vh;
+    position: relative;
+
+    .hero-bg {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        filter: brightness(0.5);
+        z-index: 1;
+    }
+
+    .glass-container {
+        position: relative;
+        z-index: 2;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
+    }
+}
+
+.section-heading {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: #222;
+}
+
+.highlight-card {
+    transition: 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.timeline {
+    position: relative;
+    margin-left: 30px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 10px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: #007bff;
+    }
+
+    .timeline-item {
+        position: relative;
+        margin-bottom: 2rem;
+
+        .timeline-marker {
+            position: absolute;
+            left: -10px;
+            width: 20px;
+            height: 20px;
+            background: #007bff;
+            border-radius: 50%;
+            top: 5px;
+        }
+
+        .timeline-content {
+            padding-left: 30px;
+        }
+    }
+}
+
+.cta-section {
+    background: linear-gradient(90deg, #112322, #194241);
+}
+
+.itinerary-timeline {
+    .timeline-wrapper {
+        position: relative;
+        padding: 2rem 0;
+
+        .timeline-block {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            margin: 3rem 0;
+
+            .timeline-box {
+                width: 48%;
+            }
+
+            .image-box img {
+                width: 100%;
+                height: auto;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+
+            .text-box {
+                background: #fff;
+                padding: 1.5rem;
+                border-radius: 12px;
+                box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+
+                h5 {
+                    font-weight: 600;
+                    margin-bottom: 0.5rem;
+                }
+
+                p {
+                    color: #444;
+                    margin: 0;
+                }
+            }
+
+            &.reverse {
+                flex-direction: row-reverse;
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .timeline-block {
+            flex-direction: column !important;
+
+            .timeline-box {
+                width: 100% !important;
+            }
+        }
+    }
+}
+
+.lead {
+    font-size: 16px;
+}

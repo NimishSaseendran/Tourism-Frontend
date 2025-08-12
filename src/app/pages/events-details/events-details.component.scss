@@ -1,0 +1,79 @@
+.img-event-detail {
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+.event-detail {
+    position: relative;
+}
+
+.event-detail-container {
+    width: max-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    // transition: 0.2s ease-in;
+    cursor: pointer;
+    max-width: 100%;
+}
+
+// .event-detail-container:hover {
+//     color: var(--primary-color);
+//     cursor: pointer;
+//     // background: rgba(255, 255, 255, 0.2);
+// }
+
+.ibm {
+    font-size: 22px;
+}
+
+.bebas {
+    font-size: 56px;
+}
+
+.festival-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 100%;
+    scrollbar-width: thin;
+    /* for Firefox */
+    scrollbar-color: #666 transparent;
+}
+
+.festival-container::-webkit-scrollbar {
+    height: 2px;
+}
+
+.festival-container::-webkit-scrollbar-thumb {
+    background-color: #666;
+    border-radius: 10px;
+}
+
+.festival {
+    font-size: 22px;
+    position: sticky;
+    top: 0;
+    background: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 16px;
+    z-index: 1000;
+    min-width: max-content;
+    /* ensures horizontal content */
+}
+
+.padding {
+    padding: 30px 20px;
+}
+
+.disclaimer {
+    background-color: #e2e8f0;
+}

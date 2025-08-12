@@ -1,0 +1,76 @@
+<div class="container py-5">
+
+    <!-- Heading -->
+    <h2 class="text-center heading mb-4">Connect with Travel Companions</h2>
+    <p class="text-center sub-heading mb-5">Find like-minded travelers, share trips, and make your journey memorable.
+    </p>
+
+    <!-- Filter Section -->
+    <div class="row mb-4 g-3 justify-content-center">
+        <div class="col-md-4">
+            <input type="text" [(ngModel)]="filter.destination" (input)="applyFilter()" class="form-control"
+                placeholder="Search by Destination (e.g. Munnar)" />
+        </div>
+        <div class="col-md-4">
+            <input type="text" [(ngModel)]="filter.interest" (input)="applyFilter()" class="form-control"
+                placeholder="Search by Interest (e.g. Beach, Wildlife)" />
+        </div>
+        <div class="col-md-2">
+            <button class="btn-outline-theme w-100" (click)="clearFilter()">Clear</button>
+        </div>
+    </div>
+
+    <!-- Travel Buddies List -->
+    <div class="row g-4">
+        <div class="col-md-6 col-lg-4" *ngFor="let person of filteredPosts">
+            <div class="card shadow-sm h-100 border-0 rounded-4">
+                <div class="card-body d-flex flex-column justify-content-between">
+
+                    <!-- Name & Destination -->
+                    <div class="mb-2">
+                        <h5 class="fw-semibold mb-0 raleway">{{ person.name }}</h5>
+                        <p class="text-muted small mb-0">
+                            <i class="fa fa-map-marker-alt me-1 text-theme"></i> {{ person.destination }}
+                        </p>
+                    </div>
+
+                    <!-- Travel Info -->
+                    <div class="mb-2 small">
+                        <div>
+                            <i class="fa fa-calendar-alt me-1 text-theme"></i>
+                            {{ person.fromDate }} to {{ person.toDate }}
+                        </div>
+                        <div>
+                            <i class="fa fa-user me-1 text-success"></i>
+                            {{ person.travelStyle }}
+                        </div>
+                    </div>
+
+                    <!-- Interests -->
+                    <div class="mb-2">
+                        <div *ngFor="let interest of person.interests" class="badge bg-light text-dark me-1 mb-1">
+                            <i class="fa fa-star text-warning"></i> {{ interest }}
+                        </div>
+                    </div>
+
+                    <!-- About -->
+                    <p class="small text-muted mb-3">
+                        {{ person.about }}
+                    </p>
+
+                    <!-- Contact -->
+                    <button class="w-100">
+                        <i class="fab fa-whatsapp me-1"></i> Contact
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- No Results -->
+    <div class="text-center mt-5" *ngIf="filteredPosts.length === 0">
+        <p class="text-muted">No matching travel buddies found. Try changing filters.</p>
+    </div>
+
+</div>

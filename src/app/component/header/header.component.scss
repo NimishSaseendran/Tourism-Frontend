@@ -1,0 +1,68 @@
+/* Ensure header sits above home content */
+.header-section {
+    position: relative !important;
+    z-index: 1050;
+    font-family: "Raleway", sans-serif;
+    background-color: rgb(40, 40, 40);
+    // background-color: var(--primary-color);
+}
+
+/* Dropdown visible on hover */
+.nav-item.dropdown {
+    position: relative;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+/* Dropdown style */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    z-index: 99999 !important;
+    transition: all 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Dropdown link style */
+.dropdown-item {
+    color: white;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Nav link (top level) */
+.dropdown-toggle {
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+    text-shadow: 2px 2px 6px black;
+}
+
+/* Open dropdown toward the left */
+.dropdown-menu-left {
+    left: auto;
+    right: 0;
+    transform-origin: top right;
+}
+
+/* Logo image */
+.travel-logo {
+    border-radius: 50%;
+}
+
+/* Text next to logo */
+.kerala-text {
+    font-weight: 600;
+    font-size: 28px;
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+}

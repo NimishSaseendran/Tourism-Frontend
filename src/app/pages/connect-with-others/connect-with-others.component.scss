@@ -1,0 +1,18 @@
+.card {
+    transition: all 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+    }
+}
+
+.badge {
+    font-size: 12px;
+    padding: 0.35em 0.65em;
+    border-radius: 12px;
+}
+
+input::placeholder {
+    font-size: 14px;
+}

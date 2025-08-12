@@ -1,1 +1,292 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Berkshire+Swash&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Kaushan+Script&family=LXGW+Marker+Gothic&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* ===== Root Variables ===== */
+:root {
+    --primary-color: #206664;
+    --primary-light: #2d7f7a;
+    --primary-dark: #14443f;
+    --secondary-color: #4f5051;
+    --text-color: #222;
+    --bg-color: #fff;
+    --heading-font: 'Segoe UI', sans-serif;
+    --body-font: 'Roboto', sans-serif;
+}
+
+::ng-deep .mat-datepicker-content {
+    background-color: rgb(255, 255, 255) !important;
+}
+
+::ng-deep .mat-calendar {
+    color: black !important;
+}
+
+::ng-deep .mat-calendar-body-cell-content {
+    color: black !important;
+}
+
+.mat-datepicker-content {
+    background-color: #ffffff !important;
+}
+
+.mat-calendar {
+    color: black !important;
+}
+
+.mat-calendar-body-cell-content {
+    color: black !important;
+}
+
+
+/* ===== Reset & Base ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    // font-family: var(--body-font);
+    font-family: "IBM Plex Sans", sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ===== Headings ===== */
+
+// h1,
+// h2,
+// h3 {
+//     font-family: "Kaushan Script", cursive;
+//     font-family: "Berkshire Swash", serif;
+// }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    // font-family: var(--heading-font);
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+p {
+    font-family: "LXGW Marker Gothic", sans-serif;
+    font-size: 22px;
+    // letter-spacing: 1px;
+    text-align: justify;
+}
+
+/* ===== Buttons ===== */
+button,
+.btn {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.btn-outline-theme {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    font-size: 1rem;
+    background-color: transparent;
+}
+
+.btn-outline-theme:hover {
+    color: white;
+}
+
+button:disabled,
+.btn:disabled {
+    background-color: #555;
+    color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+button:hover,
+.btn:hover {
+    background-color: var(--primary-light);
+}
+
+/* ===== Utility Classes ===== */
+.text-center {
+    text-align: center;
+}
+
+.shadow {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.rounded {
+    border-radius: 10px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1rem;
+}
+
+/* ===== Scrollbar Styling ===== */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f2f2f2;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
+
+/* ===== Toastr Custom Theme (Optional) ===== */
+.toast-success {
+    background-color: var(--primary-color) !important;
+}
+
+.toast-error {
+    background-color: #b91c1c !important;
+}
+
+.toast-info {
+    background-color: #2563eb !important;
+}
+
+.toast-warning {
+    background-color: #d97706 !important;
+}
+
+.heading {
+    color: var(--primary-color);
+    font-family: "Berkshire Swash", serif;
+    font-size: 48px;
+    margin-bottom: 16px;
+
+}
+
+.sub-heading {
+    color: var(--secondary-color);
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.section-container {
+    padding: 50px 20px 50px 20px;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.badge {
+    // font-weight: 400 !important;
+    font-size: 14px !important;
+    // font-family: "LXGW Marker Gothic", sans-serif;
+    font-family: "Raleway", sans-serif;
+    font-weight: 500 !important;
+    background-color: var(--primary-color);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.ibm {
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+.lxgw {
+    font-family: "LXGW Marker Gothic", sans-serif;
+}
+
+.berk {
+    font-family: "Berkshire Swash", serif;
+}
+
+.kaus {
+    font-family: "Kaushan Script", cursive;
+}
+
+.bebas {
+    font-family: "Bebas Neue", sans-serif;
+}
+
+.public {
+    font-family: "Public Sans", sans-serif;
+}
+
+.roboto {
+    font-family: "Roboto Mono", monospace;
+}
+
+.raleway {
+    font-family: "Raleway", sans-serif;
+}
+
+.description {
+    font-size: 18px;
+    font-family: "IBM Plex Sans", sans-serif;
+    opacity: 0.8;
+}
+
+.d-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-theme {
+    color: var(--primary-color) !important;
+}
+
+.bg-theme {
+    background-color: var(--primary-color);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

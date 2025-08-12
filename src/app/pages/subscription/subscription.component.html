@@ -1,0 +1,61 @@
+<section class="py-5 bg-light">
+    <div class="text-center mb-5">
+        <h1 class="choose-plan bebas">Choose your plan</h1>
+        <h5 class="raleway fw-semibold text-muted">Unlock endless possibilities</h5>
+    </div>
+
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6" *ngFor="let plan of arrSubscription">
+                <div class="card border-0 shadow h-100 position-relative">
+                    <!-- Plan Tag -->
+
+                    <div class="card-body d-flex flex-column text-center p-4">
+                        <h4 class="fw-bold text-theme mb-1">{{ plan.planName }}</h4>
+                        <small class="text-muted mb-3">{{ plan.duration }}</small>
+                        <div *ngIf="plan.tag" class="badge rounded-end px-3 py-2 fw-semibold plan-tag"
+                            style="border-bottom-right-radius: 12px;">
+                            {{ plan.tag }}
+                        </div>
+
+                        <h3 class="fw-bold mb-3">
+                            {{ plan.price === 0 ? 'Free' : plan.currency + ' ' + plan.price }}
+                        </h3>
+
+                        <p class="text-muted small raleway">{{ plan.description }}</p>
+
+                        <ul class="list-unstyled text-start my-3 flex-grow-1">
+                            <li *ngFor="let feature of plan.features" class="mb-2">
+                                <i class="fa-solid fa-check text-success me-2"></i>{{ feature }}
+                            </li>
+                        </ul>
+
+                        <button class="w-100 mt-auto" (click)="subscribe(plan.planName)">
+                            {{ plan.price === 0 ? 'Get Started' : 'Subscribe Now' }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Confirmation Modal -->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="confirmModalLabel">Confirm Subscription</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center py-4">
+                <p class="fs-5">Are you sure you want to subscribe to the <strong>{{ selectedPlan }}</strong> plan?</p>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" (click)="confirmSubscribe()">Yes, Subscribe</button>
+            </div>
+        </div>
+    </div>
+</div>

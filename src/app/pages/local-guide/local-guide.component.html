@@ -1,0 +1,116 @@
+<section class="local-guide-section d-center">
+    <div class="row g-3 login-container">
+        <div class="col-md-6 d-flex flex-column justify-content-center">
+            <div class="mb-4">
+                <h4>Start your 30-day Free Trial</h4>
+                <span class="small muted">
+                    <i class="fa-regular fa-circle-check me-2"></i> Explore the platform risk-free, no credit card
+                    required
+                </span>
+            </div>
+            <div class="mb-4">
+                <h4>Get Discovered by Travelers</h4>
+                <span class="small muted">
+                    <i class="fa-solid fa-map-location-dot me-2"></i> Your profile will be visible to thousands of
+                    global tourists
+                </span>
+            </div>
+            <div class="mb-4">
+                <h4>Monetize Your Local Knowledge</h4>
+                <span class="small muted">
+                    <i class="fa-solid fa-coins me-2"></i> Turn your passion into profit by hosting unique experiences
+                </span>
+            </div>
+            <div class="mb-4">
+                <h4>Complete Control & Flexibility</h4>
+                <span class="small muted">
+                    <i class="fa-solid fa-calendar-days me-2"></i> Set your own schedule, pricing, and trip preferences
+                </span>
+            </div>
+            <div class="mb-4">
+                <h4>Receive Personalized Support</h4>
+                <span class="small muted">
+                    <i class="fa-solid fa-headset me-2"></i> Dedicated help whenever you need it
+                </span>
+            </div>
+            <div class="mb-4">
+                <h4>Access Exclusive Resources</h4>
+                <span class="small muted">
+                    <i class="fa-solid fa-book-open me-2"></i> Training materials and guides to help you grow
+                </span>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <form [formGroup]="guideForm" (ngSubmit)="onSubmit()">
+                <div class="form-section">
+                    <label>Full Name</label>
+                    <input type="text" formControlName="fullName" placeholder="Your full name" />
+                </div>
+
+                <div class="form-section">
+                    <label>Profile Picture</label>
+                    <input type="file" (change)="onFileChange($event)" />
+                </div>
+
+                <div class="form-section">
+                    <label>Email Address</label>
+                    <input type="email" formControlName="email" placeholder="your@email.com" />
+                </div>
+
+                <div class="form-section">
+                    <label>Phone Number</label>
+                    <input type="tel" formControlName="phone" placeholder="Enter your phone number" />
+                </div>
+
+                <div class="form-section">
+                    <label class="d-flex align-items-center justify-between">
+                        <span>WhatsApp Number</span>
+                        <div class="d-flex align-items-center gap-2">
+                            <input class="ms-5 mb-0" type="checkbox" id="sameAsPhone"
+                                (change)="copyPhoneToWhatsapp($event)" [checked]="sameAsPhone" />
+                            <label for="sameAsPhone" class="small text-white mb-0 text-nowrap">Same as phone</label>
+                        </div>
+                    </label>
+
+                    <input type="tel" formControlName="whatsapp" placeholder="Enter your WhatsApp number"
+                        [disabled]="sameAsPhone" />
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 form-section">
+                        <label for="dob">Date of Birth</label>
+                        <div class="position-relative">
+                            <input matInput [matDatepicker]="picker" formControlName="dob"
+                                placeholder="Choose your date of birth" id="dob" class="form-control"
+                                [ngClass]="{ 'datepicker-open': isDatepickerOpen }" />
+                            <mat-datepicker-toggle matSuffix [for]="picker"
+                                class="position-absolute top-50 end-0 translate-middle-y me-2">
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #picker (opened)="isDatepickerOpen = true"
+                                (closed)="isDatepickerOpen = false"></mat-datepicker>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6  form-section">
+                        <label>Gender</label>
+                        <select formControlName="gender">
+                            <option value="" disabled>Select gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                            <option value="prefer-not">Prefer not to say</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-section">o
+                    <label>Location</label>
+                    <input type="text" formControlName="location" placeholder="City, State, Country" />
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+
+        </div>
+    </div>
+</section>

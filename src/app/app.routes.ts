@@ -1,3 +1,40 @@
 import { Routes } from '@angular/router';
+import { HomeComponent } from './pages/home/home.component';
+import { EventsDetailsComponent } from './pages/events-details/events-details.component';
+import { EcotourismProgramsComponent } from './pages/ecotourism-programs/ecotourism-programs.component';
+import { PlacesComponent } from './pages/places/places.component';
+import { PlaceDetailsComponent } from './pages/place-details/place-details.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { LocalGuideComponent } from './pages/local-guide/local-guide.component';
+import { SubscriptionComponent } from './pages/subscription/subscription.component';
+import { SpecilityComponent } from './pages/specility/specility.component';
+import { PackageDetailsComponent } from './pages/package-details/package-details.component';
+import { TourGuideComponent } from './pages/tour-guide/tour-guide.component';
+import { LocalHelperComponent } from './pages/local-helper/local-helper.component';
+import { VolunteerComponent } from './pages/volunteer/volunteer.component';
+import { ActivitiesComponent } from './pages/activities/activities.component';
+import { ActivityDetailsComponent } from './pages/activity-details/activity-details.component';
+import { TravelHubComponent } from './pages/travel-hub/travel-hub.component';
+import { ConnectWithOthersComponent } from './pages/connect-with-others/connect-with-others.component';
+import { AllPlacesComponent } from './pages/all-places/all-places.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+    { path: '', component: HomeComponent },
+    { path: 'event/:slug/:id', component: EventsDetailsComponent },
+    { path: 'ecotourism/:slug', component: EcotourismProgramsComponent },
+    { path: 'places', component: AllPlacesComponent },
+    { path: 'places/:categorySlug', component: PlacesComponent },
+    { path: 'places/:categorySlug/:placeSlug', component: PlaceDetailsComponent },
+    { path: 'speciality/:specialitySlug', component: SpecilityComponent },
+    { path: 'speciality/:specialitySlug/:packageSlug', component: PackageDetailsComponent },
+    { path: 'profile', component: ProfileComponent },
+    { path: 'sign/local-guide', component: LocalGuideComponent },
+    { path: 'tour-guides', component: TourGuideComponent },
+    { path: 'local-helper', component: LocalHelperComponent },
+    { path: 'volunteers', component: VolunteerComponent },
+    { path: 'connect-with-others', component: ConnectWithOthersComponent },
+    { path: 'subscription', component: SubscriptionComponent },
+    { path: 'activities', component: ActivitiesComponent },
+    { path: 'activities/:slug', component: ActivityDetailsComponent },
+    { path: 'travel-hub/:travelSlug', component: TravelHubComponent },
+];

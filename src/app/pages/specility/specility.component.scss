@@ -1,0 +1,25 @@
+.bg-pink {
+    background-color: #e83e8c !important;
+}
+
+.bg-indigo {
+    background-color: #6610f2 !important;
+}
+
+.img-speciality {
+    height: 500px;
+    width: 100%;
+    object-fit: cover;
+}
+
+@media screen and (max-width:768px) {
+    .img-speciality {
+        height: 300px;
+    }
+}
+
+@media screen and (max-width:576px) {
+    .img-speciality {
+        height: 200px;
+    }
+}

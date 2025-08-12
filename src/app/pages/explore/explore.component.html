@@ -1,0 +1,27 @@
+<section class="section-container">
+    <div class="title">
+        <h3 class="heading cursor-pointer" routerLink="/places">Kerala's Stunning Wonders <i
+                class="fa-solid fa-angles-right fs-2"></i></h3>
+
+        <!-- <i class="fa-solid fa-angle-right text-theme fs-3"></i> -->
+        <div class="sub-heading">Enjoy the magnificent and varied allure of God's Own Country</div>
+    </div>
+    <div class="row m-0">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3 g-3" *ngFor="let explore of arrExplore">
+            <div class="card h-100" (click)="fnNavigate(explore.categorySlug, explore.slug)">
+                <div>
+                    <img [src]="explore?.image" alt="" class="img-explore">
+                </div>
+                <div class="p-3">
+                    <h4>{{ explore?.title }} ({{ explore?.location }})</h4>
+                    <p>{{ explore?.description }}</p>
+                    <div class="d-flex flex-wrap gap-2 mb-3">
+                        <span class="badge bg-success" *ngFor="let tag of explore.activities">{{ tag }}</span>
+                    </div>
+                    <!-- Rating: {{ explore?.rating }} -->
+                    <p class="fw-semibold m-0">Best time to visit from {{ explore?.bestTimeToVisit }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

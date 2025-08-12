@@ -1,0 +1,52 @@
+.local-guide-section {
+    padding: 20px 10px;
+    min-height: 100vh;
+    width: 100vw;
+    background-color: var(--text-color);
+    color: white;
+}
+
+.login-container {
+    width: 75%;
+}
+
+.muted {
+    opacity: 0.5;
+}
+
+form {
+    // background-color: #1e1e2f;
+    padding: 20px;
+    border-radius: 12px;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ccc;
+    font-weight: 500;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: var(--text-color);
+    border: 1px solid #444;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+input::placeholder {
+    color: #888;
+}
+
+@media screen and (max-width: 768px) {
+    .login-container {
+        width: 100%;
+    }
+}

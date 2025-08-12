@@ -1,0 +1,80 @@
+<div class="container my-4">
+    <h2 class="mb-4 text-center">Local Helpers ( Ask anything for Free )</h2>
+
+    <!-- Filter -->
+    <div class="row mb-4 g-2">
+        <div class="col-md-6">
+            <input type="text" class="form-control" [(ngModel)]="searchHelperQuery"
+                placeholder="Search by name or city">
+        </div>
+        <div class="col-md-4">
+            <select class="form-select" [(ngModel)]="selectedSkill">
+                <option value="">All Skills</option>
+                <option *ngFor="let s of skillList">{{ s }}</option>
+            </select>
+        </div>
+        <div class="col-md-2">
+            <button *ngIf="!isFilter" class="btn-theme w-100" [disabled]="!searchHelperQuery && !selectedSkill"
+                (click)="filterHelpers()">Search</button>
+            <button *ngIf="isFilter" class="btn-theme w-100" (click)="fnClearFilter()">Clear</button>
+        </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="row g-4">
+        <div class="col-md-4" *ngFor="let helper of filteredHelpers">
+            <div class="card border-0 shadow guide-card h-100">
+                <div class="position-relative">
+                    <img [src]="helper.photo" class="card-img-top guide-img">
+                    <span class="badge bg-warning rating-badge">
+                        ★ {{ helper.rating }}
+                    </span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                    <div>
+                        <div class="d-flex align-items-center mb-3">
+                            <img [src]="helper.photo" class="rounded-circle guide-avatar me-3">
+                            <div>
+                                <h5 class="card-title mb-0">{{ helper.name }}</h5>
+                                <small class="text-muted">{{ helper.city }}</small>
+                            </div>
+                        </div>
+
+                        <p class="mb-1 ibm"><strong>Skills:</strong>
+                            <span *ngFor="let s of helper.skills" class="badge bg-theme me-1">{{ s }}</span>
+                        </p>
+                        <p class="mb-1 ibm"><strong>Experience:</strong> {{ helper.experience }} years</p>
+                        <p class="mb-1 ibm"><strong>Languages:</strong>
+                            <span *ngFor="let lang of helper.languages" class="badge bg-light text-dark me-1">{{ lang
+                                }}</span>
+                        </p>
+                        <p class="mb-1 ibm"><strong>Available:</strong> {{ helper.availability }}</p>
+                        <p class="mb-1 ibm"><strong>Tags:</strong>
+                            <span *ngFor="let tag of helper.tags"
+                                class="badge bg-primary-subtle text-primary border border-primary rounded-pill me-1">{{
+                                tag }}</span>
+                        </p>
+                        <p class="text-muted small mt-2">{{ helper.bio }}</p>
+                    </div>
+
+                    <!-- Contact Buttons -->
+                    <div class="mt-auto pt-3">
+                        <div class="d-flex gap-2">
+                            <button class="btn-outline-theme w-50"
+                                (click)="fnNumber(helper.whatsappNumber, 'whatsapp')">
+                                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                            </button>
+                            <button class="w-50" (click)="fnNumber(helper.contactNumber, 'contact')">
+                                <i class="fa fa-phone"></i> Call
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="filteredHelpers.length === 0" class="text-center mt-5 text-muted fs-5">
+            No helpers found for selected filters.
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+<div class="activity-detail-page" *ngIf="activity">
+    <!-- Hero Section -->
+    <div class="hero-section position-relative">
+        <img [src]="activity.image" class="w-100 hero-image" alt="{{ activity.name }}" />
+        <div class="hero-overlay"></div>
+        <div class="hero-text text-white text-center">
+            <h1 class="display-5 fw-bold">{{ activity.name }}</h1>
+            <p class="lead text-center">
+                <i class="fa fa-map-marker-alt me-2"></i>{{ activity.location }} ·
+                <i class="fa fa-star text-warning"></i> {{ activity.rating }}/5
+            </p>
+            <span class="badge fw-semibold px-3 py-2 rounded-pill">{{ activity.category }}</span>
+        </div>
+    </div>
+
+    <!-- Details Section -->
+    <div class="container py-5">
+        <div class="row g-4">
+            <!-- Left Content -->
+            <div class="col-lg-8">
+
+                <!-- Description -->
+                <div class="section-card mb-4 p-4">
+                    <h4 class="mb-3 text-theme fw-semibold">About the Activity</h4>
+                    <p class="text-muted">{{ activity.description }}</p>
+                </div>
+
+                <!-- Highlights -->
+                <div class="section-card mb-4 p-4">
+                    <h5 class="mb-3 fw-semibold">Why You’ll Love This</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="fa fa-check-circle text-success me-2"></i> Spectacular aerial views
+                            over Varkala</li>
+                        <li class="mb-2"><i class="fa fa-check-circle text-success me-2"></i> Operated by trained
+                            professionals</li>
+                        <li class="mb-2"><i class="fa fa-check-circle text-success me-2"></i> Safety equipment &
+                            briefing included</li>
+                    </ul>
+                </div>
+
+                <!-- Quick Info -->
+                <div class="section-card mb-4 p-4">
+                    <h5 class="mb-3 fw-semibold">Quick Info</h5>
+                    <div class="row g-3">
+                        <div class="col-6 col-md-3" *ngFor="let item of quickInfo">
+                            <div class="info-tile text-center p-3 rounded bg-light border shadow-sm h-100">
+                                <i [class]="item.icon + ' fs-4 text-' + item.color"></i>
+                                <p class="mb-1 small text-muted text-center">{{ item.label }}</p>
+                                <strong class="text-dark">{{ item.value }}</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tags -->
+                <div class="section-card mb-4 p-4">
+                    <h5 class="mb-3 fw-semibold">Tags</h5>
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge px-3 py-2" *ngFor="let tag of activity.tags">{{ tag }}</span>
+                    </div>
+                </div>
+
+                <!-- Safety & Booking Info -->
+                <div class="section-card mb-4 p-4">
+                    <h5 class="mb-3 fw-semibold">Things to Know</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2">
+                            <i class="fa fa-shield-alt text-info me-2"></i>
+                            <strong>Safety:</strong> {{ activity.isSafe ? 'Certified & Safe' : 'At Your Own Risk' }}
+                        </li>
+                        <li class="mb-2">
+                            <i class="fa fa-calendar-check text-success me-2"></i>
+                            <strong>Booking Available:</strong> {{ activity.isBookable ? 'Yes' : 'No' }}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Right CTA Panel -->
+            <div class="col-lg-4">
+                <div class="cta-panel p-4 rounded-4 shadow bg-light position-sticky" style="top: 100px;">
+                    <h5 class="fw-bold mb-3">Ready to Fly?</h5>
+                    <p class="text-muted small mb-3">Experience the thrill from ₹{{ activity.price }}</p>
+                    <button class="btn btn-success w-100 mb-3" (click)="openWhatsApp(activity.contactLink)">
+                        <i class="fab fa-whatsapp me-2"></i> Chat on WhatsApp
+                    </button>
+                    <a routerLink="/activities" class="btn btn-outline-dark w-100">
+                        <i class="fa fa-arrow-left me-2"></i> Back to All Activities
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

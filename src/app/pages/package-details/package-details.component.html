@@ -1,0 +1,127 @@
+<!-- Hero Banner -->
+<section class="package-hero position-relative text-white d-flex align-items-center justify-content-center">
+    <div class="hero-bg" [style.backgroundImage]="'url(' + package.image + ')'"></div>
+    <div class="glass-container text-center px-4 py-5 rounded-4 shadow">
+        <h1 class="display-4 fw-bold">{{ package.name }}</h1>
+        <p class="lead">{{ package.shortDescription }}</p>
+        <div class="d-flex flex-wrap justify-content-center gap-3 mt-3">
+            <span class="badge bg-light text-dark fs-6">₹{{ package.price | number }} / person</span>
+            <span class="badge bg-warning text-dark"><i class="fa fa-clock me-1"></i> {{ package.duration }}</span>
+            <span class="badge bg-success"><i class="fa fa-map-marker-alt me-1"></i> {{ package.places }}</span>
+        </div>
+    </div>
+</section>
+
+<!-- Overview -->
+<section class="container py-5">
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <h2 class="section-heading">Package Overview</h2>
+            <p class="fs-5 text-muted">{{ package.longDescription }}</p>
+            <ul class="list-inline mt-3">
+                <li class="list-inline-item me-3"><i class="fa fa-users text-info me-1"></i> {{ package.groupSize }}
+                </li>
+                <li class="list-inline-item me-3"><i class="fa fa-star text-warning me-1"></i> 4.8 Avg Rating</li>
+            </ul>
+        </div>
+        <div class="col-lg-4">
+            <div class="bg-light rounded-4 p-4 shadow-lg">
+                <h5 class="fw-bold mb-3">Quick Info</h5>
+                <ul class="list-unstyled lh-lg">
+                    <li><i class="fa fa-check-circle text-primary me-2"></i> Private Stays</li>
+                    <li><i class="fa fa-check-circle text-primary me-2"></i> Flexible Itinerary</li>
+                    <li><i class="fa fa-check-circle text-primary me-2"></i> Instant Confirmation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Day-wise Itinerary -->
+<div class="container py-5">
+    <h2 class="text-center mb-5">Day-wise Itinerary</h2>
+
+    <div *ngFor="let day of package.itinerary; let i = index" class="row align-items-center mb-5">
+        <!-- Left Image / Right Content -->
+        <div class="col-md-6" [ngClass]="{ 'order-md-2': i % 2 !== 0 }">
+            <img [src]="day.image" class="img-fluid rounded-4 shadow-sm h-100 w-100"
+                style="object-fit: cover; max-height: 500px;" [alt]="'Day ' + day.day" />
+        </div>
+
+        <!-- Right Content / Left Image -->
+        <div class="col-md-6" [ngClass]="{ 'order-md-1': i % 2 !== 0 }">
+            <div class="p-3 p-md-5 bg-light rounded-4 shadow-sm h-100">
+                <h4 class="mb-2">Day {{ day.day }}: {{ day.title }}</h4>
+                <p class="text-muted">{{ day.description }}</p>
+                <ul class="list-unstyled mt-3">
+                    <li *ngFor="let activity of day.activities" class="mb-1">
+                        <i class="fa fa-check-circle text-success me-2"></i> {{ activity }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Highlights -->
+<section class="container py-5">
+    <h2 class="section-heading text-center mb-5">Key Highlights</h2>
+    <div class="row g-4">
+        <div class="col-md-6" *ngFor="let highlight of package.highlights">
+            <div class="highlight-card p-4 bg-white rounded-4 shadow d-flex align-items-center">
+                <i class="fa fa-star text-warning fs-3 me-3"></i>
+                <span class="fs-6">{{ highlight }}</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Inclusions & Exclusions -->
+<section class="container py-5">
+    <div class="row g-4">
+        <div class="col-md-6">
+            <h4 class="fw-bold mb-3">Inclusions</h4>
+            <ul class="list-group list-group-flush">
+                <li *ngFor="let item of package.inclusions" class="list-group-item"><i
+                        class="fa fa-plus text-success me-2"></i>{{ item }}</li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <h4 class="fw-bold mb-3">Exclusions</h4>
+            <ul class="list-group list-group-flush">
+                <li *ngFor="let item of package.exclusions" class="list-group-item"><i
+                        class="fa fa-minus text-danger me-2"></i>{{ item }}</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- Reviews -->
+<section class="bg-light py-5">
+    <div class="container">
+        <h2 class="section-heading text-center mb-4">What Travelers Say</h2>
+        <div class="row g-4">
+            <div class="col-md-6" *ngFor="let review of package.reviews">
+                <div class="bg-white p-4 rounded-4 shadow">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <strong>{{ review.user }}</strong>
+                        <span class="text-warning"><i class="fa fa-star"></i> {{ review.rating }}</span>
+                    </div>
+                    <p class="fst-italic text-muted">"{{ review.comment }}"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section text-white text-center py-5">
+    <div class="container">
+        <h2 class="fw-bold mb-3">{{ package.contactCTA.title }}</h2>
+        <p class="lead mb-4 text-center">Call: {{ package.contactCTA.supportPhone }} | Email: {{
+            package.contactCTA.email }}</p>
+        <button class="btn btn-outline-light px-4 py-2 fs-5 rounded-pill">Book Now</button>
+    </div>
+</section>

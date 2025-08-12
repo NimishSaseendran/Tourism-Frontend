@@ -1,0 +1,9 @@
+<section class="footer">
+    <div class="row g-3 px-5 py-4 m-0">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2" *ngFor="let item of siteSections">
+            <h3>{{ item?.title }}</h3>
+            <div class="custom-list" *ngFor="let list of item.links">{{ list?.name }}</div>
+        </div>
+        <div></div>
+    </div>
+</section>

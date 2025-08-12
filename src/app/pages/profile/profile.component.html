@@ -1,0 +1,89 @@
+<section class="profile-section">
+    <div class="d-flex align-items-center mb-4">
+        <img src="profile/profile-pic.jpeg" alt="profile picture" class="img-profile-pic me-3" />
+
+        <div class="me-2 profile-detail">
+            <h5 class="m-0 name-truncate">{{ arrProfile.strFullName }}</h5>
+            <span class="text-muted">{{ arrProfile.strFullName }}</span>
+        </div>
+
+        <button *ngIf="!isEditEnabled" (click)="enableEditMode()">
+            <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+        <button *ngIf="isEditEnabled" class="fw-semibold" (click)="fnOnSubmit()">Submit</button>
+    </div>
+    <form [formGroup]="profileForm">
+        <h1 class="bebas">Personal Profile</h1>
+        <div class="row g-3">
+
+            <div class="col-md-6">
+                <label class="mb-2">Full Name</label>
+                <input type="text" placeholder="Your full name" class="form-control" formControlName="strFullName"
+                    [disabled]="true" />
+            </div>
+
+            <div class="col-md-6">
+                <label class="mb-2">Nick Name</label>
+                <input type="text" placeholder="Your nick name" class="form-control" formControlName="strNickName"
+                    [disabled]="true" />
+            </div>
+
+            <div class="col-md-6">
+                <label class="mb-2">Email</label>
+                <input type="text" placeholder="Your full email" class="form-control" formControlName="strEmail"
+                    [disabled]="true" />
+            </div>
+
+            <div class="col-md-6">
+                <label class="mb-2">Phone / Whatsapp</label>
+                <input type="text" placeholder="Your phone / whatsapp" class="form-control" formControlName="strPhone"
+                    [disabled]="true" />
+            </div>
+
+            <div class="col-md-6">
+                <label class="mb-2">Gender</label>
+                <select class="form-select" formControlName="strGender" [disabled]="true">
+                    <option value="">Choose Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label class="mb-2">Country</label>
+                <select class="form-select" formControlName="strCountry" [disabled]="true">
+                    <option value="">Choose Country</option>
+                    <option value="India">India</option>
+                    <option value="UAE">UAE</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label class="mb-2">Language</label>
+                <select class="form-select" formControlName="strLanguage" [disabled]="true">
+                    <option value="">Choose Language</option>
+                    <option value="English">English</option>
+                    <option value="Hindi">Hindi</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label class="mb-2">Time Zone</label>
+                <select class="form-select" formControlName="strTimeZone" [disabled]="true">
+                    <option value="">Choose Time Zone</option>
+                    <option value="Asia/Kolkata (India Standard Time)">Asia/Kolkata (India Standard Time)</option>
+                    <option value="Asia/Dubai (Gulf Standard Time)">Asia/Dubai (Gulf Standard Time)</option>
+                    <option value="Europe/London (GMT)">Europe/London (GMT)</option>
+                </select>
+            </div>
+        </div>
+    </form>
+    <div class="mt-5 border-bottom border-top py-5">
+        <h1 class="bebas">Booking & Trip History</h1>
+        <app-booking-history></app-booking-history>
+    </div>
+    <div class="my-5">
+        <h1 class="bebas">Wishlist / Saved Places</h1>
+        <app-saved-place></app-saved-place>
+    </div>
+</section>

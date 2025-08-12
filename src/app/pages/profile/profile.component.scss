@@ -1,0 +1,45 @@
+.profile-section {
+    padding: 25px 10px;
+    max-width: 100%;
+}
+
+.img-profile-pic {
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.profile-detail {
+    flex-grow: 1;
+    min-width: 0;
+}
+
+.name-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .profile-section {
+        padding: 25px;
+    }
+
+    .img-profile-pic {
+        height: 80px;
+        width: 80px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .profile-section {
+        padding: 25px 50px;
+    }
+
+    .img-profile-pic {
+        height: 100px;
+        width: 100px;
+    }
+}

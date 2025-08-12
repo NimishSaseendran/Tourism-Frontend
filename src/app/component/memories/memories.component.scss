@@ -1,0 +1,158 @@
+section {
+    position: relative;
+    height: 100vh;
+    /* same height as memories-image */
+}
+
+.memories-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-image: url('/images/memories-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    z-index: 0;
+    filter: brightness(0.4) saturate(80%);
+}
+
+
+.heading-subtitle {
+    // font-family: "IBM Plex Sans", sans-serif;
+    // font-family: "Raleway", sans-serif;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(44px, 5vw, 56px);
+    font-weight: 600;
+    letter-spacing: 4px;
+}
+
+.main-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    gap: 12px;
+}
+
+.left-container {
+    width: 30%;
+}
+
+.right-container {
+    width: 70%;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-scroll {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 20px;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+.image-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.image-wrapper {
+    flex-shrink: 0;
+}
+
+.img-box {
+    position: relative;
+    width: 300px;
+    height: 500px;
+}
+
+.img-item {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.item-title {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    color: white;
+    padding: 6px 10px;
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    border-radius: 0 0 6px 6px;
+    opacity: 0.5;
+    transition: 0.3s ease-in;
+}
+
+.img-box:hover .item-title {
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+}
+
+
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: white;
+    color: black;
+    border: none;
+    z-index: 2;
+    padding: 10px;
+    // border-radius: 50%;
+    cursor: pointer;
+}
+
+.left {
+    border-radius: 0 6px 6px 0;
+}
+
+.right {
+    border-radius: 6px 0 0 6px;
+}
+
+.scroll-btn.left {
+    left: 0;
+}
+
+.scroll-btn.right {
+    right: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .left-container {
+        width: 50%;
+    }
+
+    .right-container {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .main-container {
+        flex-direction: column;
+        /* Stack vertically */
+        padding: 20px 10px;
+        /* Optional: smaller padding for small screens */
+    }
+
+    .left-container,
+    .right-container {
+        width: 100%;
+    }
+}
